@@ -8,8 +8,13 @@ export default function NasaPhoto() {
 
         async function fetchPhoto() {
             console.log(apiKey)
+            /**
+             * TODO
+             * USE DATE PARAMETER
+             * `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=2020-09-16`
+             */
             const res = await fetch(
-                `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
+                `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=2020-09-16`
             )
             const data = await res.json();
             setPhotoData(data);
@@ -23,11 +28,12 @@ export default function NasaPhoto() {
             <NavBar />
             <div className="nasa-photo">
                 {photoData.media_type === "image" ? (
-                    <img
+                    <a href={photoData.hdurl}   target="_blanck"><img
                         src={photoData.url}
                         alt={photoData.title}
                         className="photo"
                     />
+                    </a>
                 ) : (
                         <iframe
                             title="space-video"
