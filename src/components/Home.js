@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <div className="home">
             
-            <Link className="home-link" to="/nasaphoto">See into the starts!</Link>
+            <Link className="home-link" to="/nasaphoto">Take me up above!</Link>
         </div>
     )
 }
