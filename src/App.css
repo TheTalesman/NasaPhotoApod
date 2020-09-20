@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-
+.react-calendar{
+  font-family: 'Righteous', cursive !important;
+}
 body {
   font-family: 'Righteous', cursive;
   color: #a8ff18;
@@ -81,7 +83,7 @@ body {
   display: inline-block;
   padding: 40px 80px;
   color: #000;
-  border-radius: 50%;
+  border-radius: 15px;
   text-decoration: none;
   transition: 0.3s ease all;
   text-transform: uppercase;
@@ -90,4 +92,12 @@ body {
 .home-link:hover {
   border-radius: 5px;
   background: #d5ffb5;
+}
+
+.clear{
+  clear: both;
+}
+.react-calendar{
+  margin: 0 auto;
+
 }

@@ -2,27 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
-import { formatDate} from "../utils/date";
 
 
-function tileDisabled ({date,view}) {
-    
-    date.setHours(0,0,0,0);
 
-   
-    
-    
-}
+
 class Home extends Component {
-
-
-    
     onChange = date => {
-        if (date > new Date()){
+        if (date > new Date()) {
+            alert('Future time travel is still not available! Choose today or some day in the past')
         } else {
-            this.setState({ date })   
+            this.setState({ date })
         }
-        
+
     }
     state = {
         date: new Date(),
@@ -34,18 +25,22 @@ class Home extends Component {
     render() {
         return (
             <div className="home">
-                <Calendar
-                    onChange={this.onChange}
-                    value={this.state.date}
-                    tileDisabled={tileDisabled} />
-                <br />
-                <Link className="home-link" to={
-                    {
-                        pathname: "/nasaphoto",
-                        state: this.state
+                <div className="clear" >
+                    <p>Choose a day or just click the button to see the picture of the day!</p>
+                    <Calendar
+                        onChange={this.onChange}
+                        value={this.state.date}
+                    />
+                    <br className="clear" />
+
+                    <Link className="home-link" to={
+                        {
+                            pathname: "/nasaphoto",
+                            state: this.state
+                        }
                     }
-                }
-                >Take me up above!</Link>
+                    >Take me up above!</Link>
+                </div>
             </div >
         );
     }
