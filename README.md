@@ -19,4 +19,6 @@ Run this command to run a production build and upload to your s3 bucket.
 `npm run deploy`
 
 ### TODO
-[] Insert an input to use date parameter
+[X] Insert an input to use date parameter
+[ ] UI improvements
+[ ] Have new ideas
