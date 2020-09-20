@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from "./NavBar";
+import { formatDate} from "../utils/date";
+
 const apiKey = process.env.REACT_APP_NASA_KEY;
-export default function NasaPhoto() {
+let date = new Date();
+function NasaPhoto(props) {
+
     const [photoData, setPhotoData] = useState(null);
+    date = formatDate(props.location.state.date)
+    
+
     useEffect(() => {
         fetchPhoto();
 
         async function fetchPhoto() {
-            console.log(apiKey)
-            /**
-             * TODO
-             * USE DATE PARAMETER
-             * `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=2020-09-16`
-             */
+
+           
+            
             const res = await fetch(
-                `https://api.nasa.gov/planetary/apod?api_key=${apiKey}  `
+                `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`
             )
             const data = await res.json();
             setPhotoData(data);
@@ -28,7 +32,7 @@ export default function NasaPhoto() {
             <NavBar />
             <div className="nasa-photo">
                 {photoData.media_type === "image" ? (
-                    <a href={photoData.hdurl}   target="_blanck"><img
+                    <a href={photoData.hdurl} target="_blanck"><img
                         src={photoData.url}
                         alt={photoData.title}
                         className="photo"
@@ -45,12 +49,13 @@ export default function NasaPhoto() {
                             className="photo"
                         />
                     )}
-                    <div>
-                <h1>{photoData.title}</h1>
-                <p className="date">{photoData.date}</p>
-                <p className="explanation">{photoData.explanation}</p>
+                <div>
+                    <h1>{photoData.title}</h1>
+                    <p className="date">{photoData.date}</p>
+                    <p className="explanation">{photoData.explanation}</p>
                 </div>
             </div>
         </>
     )
 }
+export default NasaPhoto;
