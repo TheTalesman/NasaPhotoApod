@@ -14,7 +14,7 @@ Create a .env file in the root folder and
 put your api key inside a variable REACT_APP_NASA_KEY="YOUR_API_KEY_HERE". Don't forget to add .env to .gitingore so your api key doesn't go public.
 
 ## Deploy 
-This project is using s3 as platform for deploy, to make this work, you need to have aws cli installed in your machine and configured with your credentials. Create a bucket in s3 and edit deploy.sh. In s3://nasaphotoapod change to s3://{{yourBucketNameHere!}}
+This project is using s3 as platform for deploy, to make this work, you need to have aws cli installed in your machine and setup with your credentials. Create a bucket in s3 and edit deploy.sh. In s3://nasaphotoapod change to s3://{{yourBucketNameHere!}}
 Run this command to run a production build and upload to your s3 bucket.
 `npm run deploy`
 
